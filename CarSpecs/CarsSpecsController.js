@@ -18,11 +18,23 @@ class CarsSpecsController {
             res.status(500).json(e)
         }
     }
+
     async getSearchedModelType(req, res) {
         try {
             const {modelType} = req.query
             const searchedModelType = await CarSpecsService.getSearchedModelType(modelType)
             return res.status(200).json(searchedModelType)
+        } catch (e) {
+            res.status(500).json(e)
+        }
+    }
+
+    async updateCarSpecs(req, res) {
+        try {
+            const {id} = req.params
+            const updatedCarSpecs = await CarSpecsService.updateCarSpecs(id, req.body)
+            console.log(updatedCarSpecs)
+            return res.status(200).json(updatedCarSpecs)
         } catch (e) {
             res.status(500).json(e)
         }

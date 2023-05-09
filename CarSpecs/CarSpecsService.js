@@ -25,6 +25,17 @@ class CarSpecsService {
         const createdCarSpecs = await CarSpecs.create(newCarSpecs)
         return createdCarSpecs
     }
+
+    async updateCarSpecs(id, updatedData) {
+        if (!id) {
+            throw new Error('id missed!')
+        }
+        if (!updatedData) {
+            throw new Error('updated data missed!')
+        }
+        const updatedCarSpecs = await CarSpecs.findByIdAndUpdate(id, updatedData, {new: true})
+        return updatedCarSpecs
+    }
 }
 
 export default new CarSpecsService();
