@@ -10,6 +10,7 @@ caliperRouter.post('/cars', CarsController.createCar)
 caliperRouter.get('/cars/:id/specs', CarsSpecsController.getCarSpecs)
 caliperRouter.get(`/carspecs/search`, CarsSpecsController.getSearchedModelType)
 caliperRouter.post('/carspecs', CarsSpecsController.addCarSpecs)
+caliperRouter.post('/carspecslist', CarsSpecsController.addCarSpecsList)
 caliperRouter.put('/update/:id', CarsSpecsController.updateCarSpecs)
 
 export default caliperRouter;

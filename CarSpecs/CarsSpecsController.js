@@ -19,6 +19,15 @@ class CarsSpecsController {
         }
     }
 
+    async addCarSpecsList(req, res) {
+        try {
+            const result = await req.body.forEach(el => { CarSpecsService.addCarSpecs(el)})
+            return res.status(200).json(result)
+        } catch (e) {
+            res.status(500).json(e)
+        }
+    }
+
     async getSearchedModelType(req, res) {
         try {
             const {modelType} = req.query
