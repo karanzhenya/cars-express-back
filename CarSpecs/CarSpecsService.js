@@ -33,7 +33,7 @@ class CarSpecsService {
         if (!updatedData) {
             throw new Error('updated data missed!')
         }
-        const updatedCarSpecs = await CarSpecs.findByIdAndUpdate(id, updatedData, {new: true})
+        const updatedCarSpecs = await CarSpecs.findByIdAndUpdate(id, updatedData, {new: false})
         return updatedCarSpecs
     }
 }
