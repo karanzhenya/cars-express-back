@@ -1,4 +1,5 @@
 import CarSpecsService from "./CarSpecsService.js";
+import CarsService from "../Cars/CarsService.js";
 
 class CarsSpecsController {
     async getCarSpecs(req, res) {
@@ -12,7 +13,6 @@ class CarsSpecsController {
 
     async addCarSpecs(req, res) {
         console.log(req.body)
-
         try {
             const carSpecs = await CarSpecsService.addCarSpecs(req.body)
             return res.status(200).json(carSpecs)

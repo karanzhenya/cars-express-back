@@ -19,6 +19,15 @@ class CarsController {
             res.status(500).json(e)
         }
     }
+    async getOneCarByName(req, res) {
+        try {
+            const {name} = req.query
+            const car = await CarsService.getOneCarByName(name)
+             res.status(200).json(car)
+        } catch (e) {
+            res.status(500).json(e)
+        }
+    }
 
     async createCar(req, res) {
         try {
